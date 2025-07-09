@@ -30,5 +30,5 @@ A full-stack e-commerce platform built with React (frontend), Node.js/Express (b
 
 | Service   | Image |
 |-----------|-------|
-| Frontend  | [`glen510/yolo-client:v1.0.0`](https://hub.docker.com/r/glen510/yolo-client) |
-| Backend   | [`glen510/yolo-backend:v1.0.0`](https://hub.docker.com/r/glen510/yolo-backend) |
+| Frontend  | [`glen510/yolo-client:v1.0.0`](https://hub.docker.com/repository/docker/glen510/yolo-backend) |
+| Backend   | [`glen510/yolo-backend:v1.0.0`](https://hub.docker.com/repository/docker/glen510/yolo-client) |
