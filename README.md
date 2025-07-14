@@ -32,3 +32,22 @@ A full-stack e-commerce platform built with React (frontend), Node.js/Express (b
 |-----------|-------|
 | Frontend  | [`glen510/yolo-client:v1.0.0`](https://hub.docker.com/repository/docker/glen510/yolo-backend) |
 | Backend   | [`glen510/yolo-backend:v1.0.0`](https://hub.docker.com/repository/docker/glen510/yolo-client) |
+
+git clone https://github.com/your-username/yolo.git
+cd yolo
+
+
+# Build and run all containers
+docker-compose up --build
+
+🔗 Docker Hub Repositories(https://hub.docker.com/repositories/neoooo2)
+geoffrey-yolo-client
+
+geoffrey-yolo-backend
+
+![DockerHub Screenshot](dockerhub-screenshot.png)
+
+
+
+
+
