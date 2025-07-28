@@ -13,9 +13,10 @@
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - /home/vagrant/mongo-data:/data/db
 
-volumes:
+
+  volumes:
   mongo_data:
 
     driver: local
