@@ -41,3 +41,45 @@ This document provides a detailed explanation of the choices and configurations 
 networks:
   app-net:
     driver: bridge
+
+
+# 📘 Explanation of Ansible Playbook and Roles
+
+## 🔄 Playbook Flow
+
+1. **Install Docker** - Ensures Docker is available on the system.
+2. **Database Role** - Runs MongoDB container.
+3. **Backend Role** - Runs Node.js API container and connects to Mongo.
+4. **Frontend Role** - Runs React UI container and connects to backend.
+
+## 📂 Role Responsibilities
+
+- **frontend**:
+  - Clones React code
+  - Pulls image and runs container
+
+- **backend**:
+  - Clones Express API
+  - Pulls image and runs container
+  - Links to MongoDB using `MONGO_URL`
+
+- **database**:
+  - Runs MongoDB container
+  - Mounts persistent volume
+
+## 🛠️ Ansible Modules Used
+
+- `apt`: Install packages
+- `docker_image`: Pull Docker image
+- `docker_container`: Run container
+- `git`: Clone repositories
+- `block`: Group tasks
+- `tags`: Selectively run tasks
+
+## 🔧 Variables
+Stored in `vars/main.yml` for image names, ports, and paths.
+
+## ✅ Execution Order
+Ansible runs top-to-bottom:
+- Docker install block
+- Database → Backend → Frontend
