@@ -1,0 +1,20 @@
+---
+- name: Pull backend Docker image
+  docker_image:
+    name: "{{ backend_image }}"
+    source: pull
+
+- name: Run backend container
+  docker_container:
+    name: backend
+    image: "{{ backend_image }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - "{{ app_directory }}/backend:/usr/src/app"
+    env:
+      MONGO_URL: mongodb://database:27017/ecommerce
+- name: Ensure backend app directory exists
+  file: 

@@ -1,0 +1,27 @@
+---
+- name: Deploy containerized e-commerce app
+  hosts: all
+  become: true
+
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: Include frontend role
+      include_role:
+        name: frontend
+      tags: frontend
+
+    - name: Include backend role
+      include_role:
+        name: backend
+      tags: backend
+
+    - name: Include database role
+      include_role:
+        name: database
+      tags: database
+    - name: Include cache role
+      include_role:
+        name: cache
+      tags: cache

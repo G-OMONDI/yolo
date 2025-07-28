@@ -1,0 +1,25 @@
+---
+- name: Pull MongoDB image
+  docker_image:
+    name: "{{ database_image }}"
+    source: pull
+
+- name: Run MongoDB container
+  docker_container:
+    name: database
+    image: "{{ database_image }}"
+    state: started
+    restart_policy: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+
+    driver: local
+    driver_opts:
+      type: none
+      device: /var/lib/mongo
+      o: bind 

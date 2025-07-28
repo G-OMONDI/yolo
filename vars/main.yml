@@ -1,0 +1,5 @@
+---
+frontend_image: glen510/frontend:1.0.0
+backend_image: glen510/backend:1.0.0
+database_image: mongo:5.0
+app_directory: /home/vagrant/app
