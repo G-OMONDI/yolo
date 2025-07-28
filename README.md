@@ -71,6 +71,20 @@ vagrant ssh
 # Run playbook
 ansible-playbook /vagrant/playbook.yml
 
+# DevOps Final Assignment
+
+## Stage 1 (Ansible + Vagrant)
+- `vagrant up` creates a VM.
+- Ansible installs Docker, Docker Compose, and runs the app.
+- Follows best practices (roles + variables).
+
+## Stage 2 (Terraform + Ansible)
+- Terraform generates inventory, triggers Ansible.
+- Ansible sets up services and launches Dockerized app.
+- Infrastructure and configuration are fully automated.
+
+## Application URL
+- http://192.168.56.10:PORT
 
 
 

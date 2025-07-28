@@ -7,7 +7,7 @@
 - name: Run MongoDB container
   docker_container:
     name: database
-    image: "{{ database_image }}"
+    image: "bitnami/mongodb:6.0"
     state: started
     restart_policy: always
     ports:

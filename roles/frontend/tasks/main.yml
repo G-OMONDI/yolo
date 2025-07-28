@@ -7,13 +7,13 @@
 
 - name: Pull frontend Docker image
   docker_image:
-    name: "{{ frontend_image }}"
+    name: "glen510/yolo-client:v1.0.0"
     source: pull
 
 - name: Run frontend container
   docker_container:
     name: frontend
-    image: "{{ frontend_image }}"
+    image: "glen510/yolo-client:v1.0.0"
     state: started
     restart_policy: always
     ports:

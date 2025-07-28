@@ -1,13 +1,13 @@
 ---
 - name: Pull backend Docker image
   docker_image:
-    name: "{{ backend_image }}"
+    name: "glen510/yolo-backend:v1.0.0"
     source: pull
 
 - name: Run backend container
   docker_container:
     name: backend
-    image: "{{ backend_image }}"
+    image: "glen510/yolo-backend:v1.0.0"
     state: started
     restart_policy: always
     ports:
