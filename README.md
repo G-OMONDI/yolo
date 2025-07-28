@@ -48,6 +48,31 @@ geoffrey-yolo-backend
 ![DockerHub Screenshot](dockerhub-screenshot.png)
 
 
+# 🛠️ Stage 1: Ansible-based E-commerce App Deployment
+
+## 📦 Description
+This project automates the deployment of a containerized e-commerce application using Ansible and Docker, provisioned inside a Vagrant-based Ubuntu VM.
+
+## 🧰 Tools Used
+- Ansible
+- Docker
+- Vagrant
+- Ubuntu 20.04
+
+## 🚀 Setup Instructions
+
+```bash
+# Start VM
+vagrant up
+
+# SSH into VM
+vagrant ssh
+
+# Run playbook
+ansible-playbook /vagrant/playbook.yml
+
+
+
 
 
 
