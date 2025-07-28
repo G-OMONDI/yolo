@@ -1,6 +1,9 @@
 # Stage 1: Base image
 FROM node:14-alpine
 
+# Install curl
+RUN apk add --no-cache curl
+
 # Set working directory inside the container
 WORKDIR /app
 
