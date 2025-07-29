@@ -16,3 +16,10 @@ ansible-playbook/
 │       └── vars/
 │           └── main.yml
 └── playbook.yml
+terraform/   
+   stage_two/
+├── main.tf              # Terraform infrastructure
+├── variables.tf         # All input variables
+├── outputs.tf           # Outputs (e.g., URLs)
+├── terraform.tfvars     # Optional variable overrides
+├── README.md            # This file
