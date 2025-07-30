@@ -82,4 +82,4 @@ Stored in `vars/main.yml` for image names, ports, and paths.
 ## ✅ Execution Order
 Ansible runs top-to-bottom:
 - Docker install block
-- Database → Backend → Frontend
+- Database → Backend → Frontend 

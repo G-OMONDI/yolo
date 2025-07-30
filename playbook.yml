@@ -1,34 +1,38 @@
-  - hosts: all
-    become: yes
-  
-    roles:
-      - docker
-      - app_clone
-      - mongo
-      - backend
-      - frontend
-  
-    tasks:
-      - name: Install required packages
-        block:
-          - name: Update apt cache
-            apt:
-              update_cache: yes
-  
-          - name: Install Docker
-            apt:
-              name: docker.io
-              state: present
-  
-          - name: Start and enable Docker
-            service:
-              name: docker
-              state: started
-              enabled: yes
-        tags: docker
-  
-      - name: Ensure app directory exists
-        file:
-          path: /home/glen/development/code/dev10/yolo
-          state: directory
-          mode: '0755'  
+---
+# Play 1: Clone the yolo GitHub repository
+- name: Clone yolo project repository
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure Git is installed
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+      tags: git
+
+    - name: Clone yolo project repository
+      git:
+        repo: https://github.com/G-OMONDI/yolo.git
+        dest: /home/vagrant/yolo
+        version: master
+      tags: clone
+
+# Play 2: Ensure Docker network exists
+- name: Ensure Docker network exists
+  hosts: all
+  become: true
+  tasks:
+    - name: Create Docker network app-net
+      community.docker.docker_network:
+        name: app-net
+        state: present
+
+# Play 3: Run role-based deployments
+- name: IP3 Ansible playbook
+  hosts: all
+  become: true
+  roles: 
+    - mongodb
+    - frontend
+    - backend
