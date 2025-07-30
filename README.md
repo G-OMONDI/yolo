@@ -100,7 +100,26 @@ To separate Stage One from Stage Two, a new Git branch was created:
 
 ```bash
 git checkout -b stage_two
- 
+ Project Structure
+project-root/
+├── backend/ # Node.js backend
+│ └── Dockerfile
+├── client/ # React frontend
+│ └── Dockerfile
+├── docker-compose.yml # Manual orchestration
+├── Vagrantfile # VM provisioning
+├── playbook.yml # Main Ansible playbook
+├── roles/ # Ansible roles
+│ ├── mongodb/
+│ ├── backend/
+│ └── frontend/
+├── explanationIP2.md 
+├── explanationIP3.md
+└── README.md 
+Documentation
+IP 2 Creating a Basic Micro-service - Explanation of steps undertaken to create a Basic Micro-service
+
+IP 3 Configuration Management - IP3 Configuration Management - Deployment with Ansible and Vagrant
 
 
 
