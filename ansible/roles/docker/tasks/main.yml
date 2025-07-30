@@ -11,13 +11,66 @@
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
 
-    - name: Add Docker repo
+    - name: Add Docker repository
       apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
-        state: present
+        repo: "deb [arch=amd64] https://download.docker.com/linux/  ubuntu {{ ansible_lsb.codename }} stable" 
 
     - name: Install Docker engine
       apt:
         name: docker-ce
         update_cache: yes
         state: present  
+
+- name: Ensure Docker is installed
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+- name: Ensure Docker service is running
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Pull MongoDB image
+  community.docker.docker_image:
+    name: mongo
+    source: pull
+
+- name: Pull Node.js backend image
+  community.docker.docker_image:
+    name: "{{ backend_image }}"
+    source: pull
+
+- name: Pull React frontend image
+  community.docker.docker_image:
+    name: "{{ frontend_image }}"
+    source: pull
+
+- name: Run MongoDB container
+  community.docker.docker_container:
+    name: yolo-mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    state: started
+    restart_policy: always
+
+- name: Run backend container
+  community.docker.docker_container:
+    name: yolo-backend
+    image: "{{ backend_image }}"
+    ports:
+      - "5000:5000"
+    state: started
+    restart_policy: always
+
+- name: Run frontend container
+  community.docker.docker_container:
+    name: yolo-frontend
+    image: "{{ frontend_image }}"
+    ports:
+      - "3000:3000"
+    state: started
+    restart_policy: always

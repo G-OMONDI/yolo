@@ -36,3 +36,9 @@
     - mongodb
     - frontend
     - backend
+
+- name: Deploy Dockerized E-commerce App
+  hosts: all
+  become: true
+  roles:
+    - docker_app

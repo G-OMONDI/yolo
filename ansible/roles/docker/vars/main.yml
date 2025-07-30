@@ -1,3 +1,2 @@
-#SPDX-License-Identifier: MIT-0
----
-# vars file for docker
+backend_image: glen510/yolo-backend:1.0.0
+frontend_image: glen510/yolo-frontend:1.0.0

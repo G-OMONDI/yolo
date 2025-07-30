@@ -40,7 +40,7 @@ cd yolo
 # Build and run all containers
 docker-compose up --build
 
-🔗 Docker Hub Repositories(https://hub.docker.com/repositories/neoooo2)
+🔗 Docker Hub Repositories(https://hub.docker.com/repositories/glen510)
 geoffrey-yolo-client
 
 geoffrey-yolo-backend
