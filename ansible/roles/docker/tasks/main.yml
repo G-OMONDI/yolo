@@ -74,3 +74,14 @@
       - "3000:3000"
     state: started
     restart_policy: always
+
+
+- name: Pull and run Docker containers
+  community.docker.docker_container:
+    name: "{{ item.container_name }}"
+    image: "{{ item.name }}:{{ item.tag }}"
+    published_ports: "{{ item.ports | default([]) }}"
+    env: "{{ item.env | default({}) }}"
+    state: started
+  loop: "{{ docker_images }}"
+  when: docker_images is defined and docker_images | length > 0
