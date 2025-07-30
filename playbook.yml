@@ -1,28 +1,34 @@
-  roles:
-    - docker
-    - app_setup
-
-  tasks:
-    - name: Install required packages
-      block:
-        - name: Update apt cache
-          apt:
-            update_cache: yes
-
-        - name: Install Docker
-          apt:
-            name: docker.io
-            state: present
-
-        - name: Start and enable Docker
-          service:
-            name: docker
-            state: started
-            enabled: yes
-      tags: docker
-
-    - name: Ensure app directory exists
-      file:
-        path: /home/glen/development/code/dev10/yolo
-        state: directory
-        mode: '0755'
+  - hosts: all
+    become: yes
+  
+    roles:
+      - docker
+      - app_clone
+      - mongo
+      - backend
+      - frontend
+  
+    tasks:
+      - name: Install required packages
+        block:
+          - name: Update apt cache
+            apt:
+              update_cache: yes
+  
+          - name: Install Docker
+            apt:
+              name: docker.io
+              state: present
+  
+          - name: Start and enable Docker
+            service:
+              name: docker
+              state: started
+              enabled: yes
+        tags: docker
+  
+      - name: Ensure app directory exists
+        file:
+          path: /home/glen/development/code/dev10/yolo
+          state: directory
+          mode: '0755'  
