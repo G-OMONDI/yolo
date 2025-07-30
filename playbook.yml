@@ -1,3 +1,7 @@
+  roles:
+    - docker
+    - app_setup
+
   tasks:
     - name: Install required packages
       block:
@@ -16,5 +20,9 @@
             state: started
             enabled: yes
       tags: docker
+
     - name: Ensure app directory exists
-      file:   
+      file:
+        path: /home/glen/development/code/dev10/yolo
+        state: directory
+        mode: '0755'

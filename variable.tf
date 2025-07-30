@@ -5,7 +5,7 @@ variable "mongo_image" {
 }
 
 variable "mongo_container_name" {
-  default = "yolo-mongo"
+  default = "yolo-mongo-stage2"
 }
 
 variable "mongo_port" {

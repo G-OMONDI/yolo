@@ -1,0 +1,34 @@
+---
+- name: Clone frontend code
+  git:
+    repo: https://github.com/G-OMONDI/yolo.git
+    dest: /home/vagrant/frontend
+    version: main
+
+- name: Build and run frontend container
+  docker_container:
+    name: frontend
+    image: node:18
+    state: started
+    command: "npm start"
+    working_dir: /home/vagrant/frontend/client
+    volumes:
+      - /home/vagrant/frontend/client:/app
+    ports:
+      - "33000:3300"
+
+- name: Install frontend dependencies
+  apt:
+    name: nodejs,npm
+    state: present
+  become: yes
+
+- name: Install project dependencies
+  npm:
+    path: /home/glen/development/code/dev10/yolo/frontend
+    production: no
+
+- name: Build frontend assets
+  command: npm run build
+  args:
+    chdir: /home/glen/development/code/dev10/yolo/frontend
