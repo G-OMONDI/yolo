@@ -22,4 +22,4 @@
     env:
       PORT: "3000"
       MONGODB_URI: "mongodb://mongodb"
-      DBNAME: "nixip2"  
+      DBNAME: "nixip2"
