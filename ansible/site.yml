@@ -1,9 +1,0 @@
----
-- name: Set up yolo application
-  hosts: yolo
-  become: true
-
-  roles:
-    - mongo
-    - backend
-    - frontend
