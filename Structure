@@ -1,25 +1,16 @@
-ansible-playbook/
-├── roles/
-│   ├── setup-mongodb/
-│   │   ├── tasks/
-│   │   │   └── main.yml
-│   │   └── vars/
-│   │       └── main.yml
-│   ├── backend-deployment/
-│   │   ├── tasks/
-│   │   │   └── main.yml
-│   │   └── vars/
-│   │       └── main.yml
-│   └── frontend-deployment/
-│       ├── tasks/
-│       │   └── main.yml
-│       └── vars/
-│           └── main.yml
-└── playbook.yml
-terraform/   
-   stage_two/
-├── main.tf              # Terraform infrastructure
-├── variables.tf         # All input variables
-├── outputs.tf           # Outputs (e.g., URLs)
-├── terraform.tfvars     # Optional variable overrides
-├── README.md            # This file
+ Project Structure
+project-root/
+├── backend/ # Node.js backend
+│ └── Dockerfile
+├── client/ # React frontend
+│ └── Dockerfile
+├── docker-compose.yml # Manual orchestration
+├── Vagrantfile # VM provisioning
+├── playbook.yml # Main Ansible playbook
+├── roles/ # Ansible roles
+│ ├── mongodb/
+│ ├── backend/
+│ └── frontend/
+├── explanationIP2.md 
+├── explanationIP3.md
+└── README.md 
