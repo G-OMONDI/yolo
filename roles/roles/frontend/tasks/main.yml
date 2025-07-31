@@ -1,0 +1,25 @@
+---
+- name: Ensure frontend Docker image is present
+  docker_image:
+    name: kipyegonrotich/yolo-frontend
+    tag: v1.0.0
+    source: pull
+
+- name: Remove any existing frontend container
+  docker_container:
+    name: yolofrontend
+    state: absent
+    force_kill: true
+
+- name: Run frontend container
+  docker_container:
+    name: yolofrontend
+    image: glen510/yolo-client:v1.0.0
+    state: started
+    restart_policy: always
+    ports:
+      - "3000:3000"
+    env:
+      PORT: "3000"
+      MONGODB_URI: "mongodb://mongodb"
+      DBNAME: "nixip2"
