@@ -16,6 +16,7 @@
         repo: https://github.com/G-OMONDI/yolo.git
         dest: /home/vagrant/yolo
         version: master
+        update: no
       tags: clone
 
 # Play 2: Ensure Docker network exists

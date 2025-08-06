@@ -7,7 +7,9 @@
 - name: Pull MongoDB image
   community.docker.docker_image:
     name: mongo
+    tag: latest
     source: pull
+
 
 - name: Run MongoDB container
   community.docker.docker_container:
