@@ -33,6 +33,6 @@
   hosts: all
   become: true
   roles: 
-    - mongodb
+    - mongo
     - frontend
     - backend
