@@ -1,0 +1,29 @@
+# Use official lightweight Node image
+FROM node:14-alpine
+
+# Install curl
+RUN apk add --no-cache curl
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and install only needed dependencies
+COPY package*.json ./
+RUN npm install --production
+
+# Copy the rest of the application
+COPY . .
+
+# Expose backend port
+EXPOSE 5000
+
+# Run the backend server
+CMD ["node", "server.js"]
+
+# Stage 1: Build the React app
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
