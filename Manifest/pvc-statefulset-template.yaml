@@ -1,0 +1,23 @@
+# pvc-statefulset-template.yaml
+# This snippet is intended to be placed under `spec` -> `volumeClaimTemplates` of a StatefulSet.
+# Example usage inside a StatefulSet:
+# spec:
+#   serviceName: "mongo"
+#   replicas: 3
+#   selector: ...
+#   template: ...
+#   volumeClaimTemplates:
+#     - <the claim below>
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-data    # template name appears as <volumeClaimTemplates>.metadata.name
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard    # change to your cluster's StorageClass
+  resources:
+    requests:
+      storage: 20Gi             # adjust size per replica; each replica gets its own PVC
+  volumeMode: Filesystem

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-frontend-image:latest
+          image: glen510/yolo-client:v1.0.0
           ports:
             - containerPort: 80
           env:
@@ -29,3 +29,16 @@ spec:
             limits:
               cpu: "500m"
               memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: app-namespace
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 3000
