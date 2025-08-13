@@ -71,9 +71,8 @@ The commits recorded show the incremental development of this project:
 8. Terraform-Ansible integration.
 9. Persistent MongoDB volume setup.
 10. GKE cluster testing.
-11. Final deployment.
-12. Documentation updates.
-13. Cleanup and explanation.md added.
+11. Documentation updates.
+12. Cleanup and explanation.md added.
 
 ---
 
@@ -81,6 +80,7 @@ The commits recorded show the incremental development of this project:
 This project successfully demonstrated:
 - Infrastructure provisioning with **Terraform**.
 - Configuration management with **Ansible**.
-- Deployment on **Google Kubernetes Engine**.
+
 - Data persistence in MongoDB.
 - CI/CD integration with automated steps.
+- personally i had a problem with accessing biling google console.
